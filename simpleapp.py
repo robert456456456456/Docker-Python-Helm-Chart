@@ -5,12 +5,12 @@ import time
 
 app = Flask(__name__)
 
-start = int(round(time.time()))
+#start = int(round(time.time()))
 
 @app.route("/")
 def index():
     return render_template('index.html')
-
+'''
 if __name__ == '__main__':
     parser = optparse.OptionParser(usage="python simpleapp.py -p ")
     parser.add_option('-p', '--port', action='store', dest='port', help='The port to listen on.')
@@ -18,5 +18,9 @@ if __name__ == '__main__':
     if args.port == None:
         print "Missing required argument: -p/--port"
         sys.exit(1)
-    app.run(host='0.0.0.0', port=int(args.port), debug=False)
+    app.run(host='0.0.0.0', debug=False)
+'''	
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0')	
+	
 
