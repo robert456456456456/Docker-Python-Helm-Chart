@@ -8,7 +8,7 @@ RUN pip install Flask
 #RUN pip install -r requirements.
 # Bundle app source
 COPY simpleapp.py /src/simpleapp.py
-COPY index.html  /src/index.html
+COPY index.html  /src/templates/index.html
 
 EXPOSE  8000
 CMD ["python", "/src/simpleapp.py", "-p 8000"]
