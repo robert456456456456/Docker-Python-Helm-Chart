@@ -8,7 +8,7 @@ Manual
 
 * integrate my github repository to Docker Hub  
 * Configure Automation Build solution 
-* explain this solution: evry time when i do push in git to new code  Atomaticly i get last version of my container.
+* Explain this solution: Every time when i do push in git to new code .Automatically i get last version of my container.
 #Step3:How i get last version of my container in Docker host.
 
 * It's simple i just run this command "docker pull 456456/dockerpythont" and i get last success build from docker hub with latest code.
