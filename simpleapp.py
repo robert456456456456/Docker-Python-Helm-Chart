@@ -1,26 +1,8 @@
-from flask import Flask,render_template
+import os
 import sys
-import optparse
-import time
+def getnum (num):
+    if num.__contains__(7) | (num/7):
+        print(num)
 
-app = Flask(__name__)
-
-#start = int(round(time.time()))
-
-@app.route("/")
-def index():
-    return render_template('index.html')
-'''
 if __name__ == '__main__':
-    parser = optparse.OptionParser(usage="python simpleapp.py -p ")
-    parser.add_option('-p', '--port', action='store', dest='port', help='The port to listen on.')
-    (args, _) = parser.parse_args()
-    if args.port == None:
-        print "Missing required argument: -p/--port"
-        sys.exit(1)
-    app.run(host='0.0.0.0', debug=False)
-'''	
-if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')	
-	
-
+   getnum(sys.argv)
