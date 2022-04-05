@@ -1,8 +1,17 @@
+from flask import Flask, jsonify, request,render_template
 import os
-import sys
-def getnum (num):
-    if num.__contains__(7) | (num/7):
-        print(num)
 
-if __name__ == '__main__':
-   getnum(sys.argv)
+app = Flask(__name__)
+
+
+@app.route('/', methods=['GET'])
+def _get_():
+    data = request.get_data()
+    return data
+@app.route('/', methods=['POST'])
+def _post_():
+    data = request.get_data()
+    return data
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)

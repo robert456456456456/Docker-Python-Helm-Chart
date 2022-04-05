@@ -1,14 +1,20 @@
-FROM alpine:3.1
+# start by pulling the python image
+FROM python:3.8-alpine
 
-# Update
-RUN apk add --update python py-pip
+# copy the requirements file into the image
+COPY ./requirements.txt /app/requirements.txt
+COPY ./index.html /app/index.html
 
-# Install app dependencies
-RUN pip install Flask
-#RUN pip install -r requirements.
-# Bundle app source
-COPY simpleapp.py /src/simpleapp.py
+# switch working directory
+WORKDIR /app
 
+# install the dependencies and packages in the requirements file
+RUN pip install -r requirements.txt
 
-CMD ["python", "/src/simpleapp.py"]
+# copy every content from the local file to the image
+COPY . /app
 
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python" ]
+
+CMD ["simpleapp.py"]
