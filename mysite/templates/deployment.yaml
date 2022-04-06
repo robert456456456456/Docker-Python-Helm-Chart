@@ -18,7 +18,7 @@ spec:
         app: myapp
     spec:
       containers:
-      - image: 456456/dockerpythont:latest
+      - image: 456456/dockerpythont:master
         name: flaskapp
         resources: {}
 status: {}
