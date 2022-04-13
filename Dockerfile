@@ -3,7 +3,6 @@ FROM python:3.8-alpine
 
 # copy the requirements file into the image
 COPY ./requirements.txt /app/requirements.txt
-COPY ./index.html /app/index.html
 
 # switch working directory
 WORKDIR /app

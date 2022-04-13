@@ -14,7 +14,7 @@ Manual
 # Step 3:How I get last version of my container in Docker host.
 
 * It's simple i just run this command "docker pull 456456/dockerpythont:master" and i get last success build from docker hub with latest code.
-* After this we run our new docker container with this command "docker run -d -p 5000:5000 --name nauseous_wescoff -P 456456/dockerpythont"
+* After this we run our new docker container with this command "docker run -d -p 5000:5000 --name nauseous_wescoff -P 456456/dockerpythont:master"
 * You can run my container in every docker host.
 
 # Step 4: How you QA this
