@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "dockerpythont.fullname" . }}
+  name: {{ include "dockerpython.fullname" . }}
   labels:
-    {{- include "dockerpythont.labels" . | nindent 4 }}
+    {{- include "dockerpython.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "dockerpythont.selectorLabels" . | nindent 6 }}
+      {{- include "dockerpython.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "dockerpythont.selectorLabels" . | nindent 8 }}
+        {{- include "dockerpython.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "dockerpythont.serviceAccountName" . }}
+      serviceAccountName: {{ include "dockerpython.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
