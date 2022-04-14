@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 456456/dockerpython
+  repository: 456456/dockerpythont
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "master"
