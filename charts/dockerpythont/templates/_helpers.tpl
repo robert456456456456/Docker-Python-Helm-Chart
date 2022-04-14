@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "dockerPythont.name" -}}
+{{- define " .Release.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "dockerPythont.fullname" -}}
+{{- define " .Release.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "dockerPythont.chart" -}}
+{{- define " .Release.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "dockerPythont.labels" -}}
-helm.sh/chart: {{ include "dockerPythont.chart" . }}
-{{ include "dockerPythont.selectorLabels" . }}
+{{- define " .Release.labels" -}}
+helm.sh/chart: {{ include " .Release.chart" . }}
+{{ include " .Release.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "dockerPythont.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "dockerPythont.name" . }}
+{{- define " .Release.selectorLabels" -}}
+app.kubernetes.io/name: {{ include " .Release.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "dockerPythont.serviceAccountName" -}}
+{{- define " .Release.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "dockerPythont.fullname" .) .Values.serviceAccount.name }}
+{{- default (include " .Release.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
