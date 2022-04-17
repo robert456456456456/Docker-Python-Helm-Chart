@@ -34,8 +34,8 @@ jobs:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
           command: "push"
           format: "helm"
-          owner: "cloudsmith"
-          repo: "actions"
+          owner: "robert-adinihu"
+          repo: "my-public-dockerpython"
           republish: "true" # needed ONLY if version is not changing
           file: "dockerpython-0.5.0.tgz" #real file that will repeat versions
 
