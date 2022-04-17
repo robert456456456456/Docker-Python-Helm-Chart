@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def _get_():
-    data = request.get_data()
-    return data
+    #data = request.get_data()
+    return "Hell Python Flusk"
 @app.route('/', methods=['POST'])
 def _post_():
     data = request.get_data()
