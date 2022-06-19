@@ -1,0 +1,21 @@
+name: Create PR
+on: [workflow_dispatch]
+  # Triggers the workflow every Saturday At 03:00 on .
+  schedule:
+    - cron: "0 3 * * 6"
+jobs:
+  createpr:
+    name: create pr
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # List of repo
+        mode: [ transcript-analyzer,zoom-app-frontend,frontend-server,meeting-app,management-app,crm-adapter,auth,zoom-app-backend,nginx,bot-launcher,zoom-bot,transcript-adapter ]
+    steps:
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: winn-ai
+          repo: ${{ matrix.mode }}
+          github_token: ${{ secrets.GIT_TOKEN }}
+          workflow_file_name: pull-request.yml
