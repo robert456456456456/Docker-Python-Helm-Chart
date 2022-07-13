@@ -2,8 +2,6 @@ name: Create PR
 on: 
   workflow_dispatch:
   # Triggers the workflow every Saturday At 03:00 on .
-  schedule:
-    - cron: "0 3 * * 6"
 jobs:
   createpr:
     name: create pr
